@@ -88,11 +88,14 @@ mechanism that makes the form clickable at all. What *can* be controlled is
 its **duration**: vanilla's own dialog animations read their timing from
 overridable global variables (`$transition_time_push`, `$transition_time_pop`,
 and their `_size` variants), which default to 0.4-0.6 seconds in vanilla.
-`rp/ui/_global_variables.json` overrides these down to ~0.1s - the same kind
-of override any resource pack (including snappier commercial server lobby
-menus) can ship. This is global to every Bedrock dialog while the pack is
-active, not scoped to just this project's own screens - a deliberate,
-disclosed tradeoff.
+`rp/ui/_global_variables.json` overrides these to 0 - a screen simply pops
+in/out instantly, no slide/fade/zoom at all - the same kind of override any
+resource pack (including snappier commercial server lobby menus) can ship.
+Vanilla itself uses a 0-duration animation in places (`loading_bar_init_
+animation_push` in its own `ui_common.json`), so this isn't an edge case
+JSON UI merely tolerates - it's a supported value. This is global to every
+Bedrock dialog while the pack is active, not scoped to just this project's
+own screens - a deliberate, disclosed tradeoff.
 
 ### HUD: a real always-on overlay, for display only
 
