@@ -97,6 +97,29 @@ JSON UI merely tolerates - it's a supported value. This is global to every
 Bedrock dialog while the pack is active, not scoped to just this project's
 own screens - a deliberate, disclosed tradeoff.
 
+`long_form` (the one vanilla screen every compiled screen rides, per above)
+also sets `cache_screen: true` and `load_screen_immediately: true` - two
+real `screen`-type properties vanilla itself uses on `pause_screen`/
+`inventory_screen_common`, aimed at the frame where a freshly-built screen
+is blank before its bindings settle. **Neither is documented beyond the
+property name and type, even in the community wiki** - this is a
+lower-risk experiment than the toggle-group one that failed (a boolean
+flag on an already-correct, already-working screen, not a new
+cross-control binding scheme), but still unverified in-game.
+
+**What this can't do**: hold the *previous* screen fully alive and visible
+while the next one loads. This project already confirmed (UI-0) that every
+`ActionFormData.show()` re-triggers a full screen push/pop at the engine
+level - there's a real, documented `render_only_when_topmost` screen
+property implying a screen stack exists, but a stack doesn't help here
+since a form re-show is a full pop-then-push of a *single* screen, not two
+screens coexisting. If a visible gap between the old and new screen is
+still a real problem after `cache_screen`/`load_screen_immediately`, the
+next place to look is whether the new screen's *first frame* can be
+pre-populated before it's shown (its provider snapshot is already fully
+known at `.show()` time - JSON UI itself has no obvious hook for it), not
+something to reach for by default.
+
 ### HUD: a real always-on overlay, for display only
 
 `<hud>` elements (compiled by the same `lib/compile.js`, in a mode where

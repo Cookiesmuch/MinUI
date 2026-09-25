@@ -2,6 +2,8 @@
   "namespace": "server_form",
 
   "long_form": {
+    "cache_screen": true,
+    "load_screen_immediately": true,
     "modifications": [
       {
         "array_name": "bindings",
