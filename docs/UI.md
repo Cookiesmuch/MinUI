@@ -75,6 +75,7 @@ Top-level elements in a `.ui.html` file are `<screen>`, `<hud>` and `<template>`
 | `button on:press="..."` | a pressable; its children are its content |
 | `spacer` | empty space |
 | `use t="name" ...` | pastes a `<template>` (see Templates) |
+| `tabs` / `tab` | real client-side tab switching, no server round trip (below) |
 
 ### Attributes on any element
 
@@ -82,7 +83,37 @@ Top-level elements in a `.ui.html` file are `<screen>`, `<hud>` and `<template>`
 - **`each="item in list" max="N"`:** repeats the element for each list item, up to `N`. A compiled screen reserves room for N, so pick a real maximum and paginate beyond it. `each="item, i in list"` also gives the index.
 - **`class="a b"`, `id`, `style="width: 40; color: #ffffff"`:** styling (see Styles).
 
-### Text templates
+**A `<button>` may never be `if=`/`each=`-gated while nested inside an ancestor `each=` collection.** A button gated that way sends correct data server-side but the client never draws its text - a real JSON UI quirk (compiler-enforced, `lib/compile.js`'s `gateDepth`). Restructure so the outer each-gated element IS the button, with only plain `if=`-gated `<text>`/`<image>` children, and let the action reject an invalid press server-side instead. A plain `if=` ancestor (e.g. a `<tabs>` body) does **not** count - only a real `each=` collection does, since that's the one case actually confirmed to break.
+
+### Tabs - real client-side switching, confirmed working
+
+Every value on a form-hosted screen (even plain text) rides a form entry - that's how a screen with hundreds of live fields is possible at all (§1). Switching a `<tabs>` block never does, because it needs no new data: JSON UI's own documentation lists a legacy `tab` element type as **superseded by toggles** for exactly this use case, and vanilla's `ui_template_tabs.json` confirms the pattern in shipped code. `<tabs>` compiles to that mechanism: one real `type: "toggle"`, hand-built (never a vanilla factory extension), per tab.
+
+```html
+<tabs class="tabs" default="overview" style="height: 203">
+  <tab id="overview" label="{t:my.ui.tab.overview}" style="height: 185">
+    ...content...
+  </tab>
+  <tab id="skills" label="{t:my.ui.tab.skills}" style="height: 185">
+    ...content...
+  </tab>
+</tabs>
+```
+
+- `<tabs default="id">`: which `<tab>` starts active. **`style` must give `<tabs>` a literal pixel width** (a compile error otherwise) - each tab's body is a child of its own small toggle button, positioned to reach the content area below it, and needs a real number to size against instead of its tiny parent.
+- `<tab id="..." label="...">`: `label` must be plain text or a bare `{t:key}` (no data - the tab list itself never changes). `style="height: N"` sets that tab's own body height.
+- Tab-bar look comes from CSS custom properties on the `<tabs>` element's own class: `tab-width`/`tab-height` (default 54x16), `gap` (default 3), `tab-color`/`tab-active-color` (label colors), `background`/`hover-background`/`pressed-background` (the toggle's own idle look), `tab-active-background` (optional highlight image shown only on the active tab).
+- **All tab bodies load in the same provider call as the rest of the screen** - a `<tabs>` block is not lazy. That's the real cost/benefit trade against separate screens with `replace()`: a `<tabs>` screen's first open is a bigger one-time payload (every tab's data at once), but every switch after that is genuinely free (no server round trip, no recomputation) rather than merely fast. Prefer separate screens + `replace()` when a screen's tabs are rarely all viewed in one sitting; prefer `<tabs>` when they typically are.
+- **Known limitation:** a tab's `label` isn't a form field, so it can't go through the usual `{t:key}` → RawMessage/override pipeline. It's compiled to the bare lang key as a literal string with `localize: true`, resolved by the *client's own* `texts/<lang>.lang` - this follows the game's language automatically, but misses a player's in-game language override, unlike every other piece of text on the same screen.
+
+**This took four attempts to get right, and the history is worth keeping** so nobody (including a future session) re-derives it the hard way:
+
+1. Extended vanilla's `common_toggles.light_text_toggle`. Shipped visibly broken - every tab rendered simultaneously, every toggle read as active.
+2. Rebuilt the visibility binding to match `wiki.bedrock.dev`'s documented shape exactly. Still broken the same way, plus caused a genuine resource-pack validation error (`Unknown property [localize]` - a property that doesn't exist at that level in the template chain, confirmed via Minecraft's own Content Log, which is where JSON UI errors actually land - `openchara.js log` reads it).
+3. Checked `bedrock-core/ui`'s actual compiler source (the library this project already credits for its transport techniques) instead of guessing again. Its `swap()` function (backing their own working `<Tabs>`) builds a **raw `type: "toggle"` by hand**, never a vanilla template - and their own source comment explains why: without all 8 state-slot properties (`checked_control`/`unchecked_control`/etc., each with a real child control) plus `toggle_on_button`/`toggle_off_button` and specific `button_mappings`, "it draws but never takes a press." Rebuilding with these fixed the toggle's own click response (confirmed: its look now correctly changed state), but the tab **bodies still never appeared**, for any tab, including the one active by default.
+4. The remaining bug: the visibility binding (`source_control_name` + `#toggle_state` → `#visible`, read from *outside* the toggle) was copied from `bedrock-core/ui`'s `shownWhileOn()` - which backs their *different* component, `<Disclosure>`, whose toggle explicitly re-exposes `#toggle_state`. Their own `<Tabs>` (`swap()`) never does that - it nests each look's content **inside** `checked_control` directly, so nothing ever needs to observe state from outside. Rebuilt to match that: each tab's body compiles once into a stored def and is referenced from all 4 checked-family states of its own toggle, with an offset that cancels the toggle's own bar-position so the body lands in the right place regardless of which tab it belongs to. **Confirmed working in-game**: two toggles sharing a radio group correctly exclude each other and each shows its own content.
+
+The lesson, not just the fix: two different, real, independently-useful mechanisms exist in JSON UI for "content driven by a toggle" (content-inside-a-look vs. content-reading-state-from-outside), and they are not interchangeable - which one a given toggle supports depends on how that specific toggle was built, not on the binding shape alone.
 
 Text content and `src` can mix literal text with:
 

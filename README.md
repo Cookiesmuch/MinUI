@@ -97,28 +97,27 @@ JSON UI merely tolerates - it's a supported value. This is global to every
 Bedrock dialog while the pack is active, not scoped to just this project's
 own screens - a deliberate, disclosed tradeoff.
 
-`long_form` (the one vanilla screen every compiled screen rides, per above)
-also sets `cache_screen: true` and `load_screen_immediately: true` - two
-real `screen`-type properties vanilla itself uses on `pause_screen`/
-`inventory_screen_common`, aimed at the frame where a freshly-built screen
-is blank before its bindings settle. **Neither is documented beyond the
-property name and type, even in the community wiki** - this is a
-lower-risk experiment than the toggle-group one that failed (a boolean
-flag on an already-correct, already-working screen, not a new
-cross-control binding scheme), but still unverified in-game.
+**Tried and reverted:** `cache_screen: true` and `load_screen_immediately: true`
+on `long_form` - two real `screen`-type properties vanilla itself uses on
+`pause_screen`/`inventory_screen_common`. Undocumented beyond their name and
+type anywhere, and it turned out to matter: Minecraft's own Content Log
+(`openchara.js log` - the only place JSON UI errors actually land; they never
+show in-game) flagged both as `Unknown property` on `def[long_form] from
+namespace[server_form]`, every single time the screen opened. Whatever makes
+`cache_screen` valid on `pause_screen` doesn't apply to a `def` reached via
+`modifications` the way `long_form` is here. An unknown property is silently
+ignored by the parser (not fatal), so this cost nothing functionally, but it
+spammed a real error on every screen open for no benefit - removed.
 
-**What this can't do**: hold the *previous* screen fully alive and visible
-while the next one loads. This project already confirmed (UI-0) that every
-`ActionFormData.show()` re-triggers a full screen push/pop at the engine
-level - there's a real, documented `render_only_when_topmost` screen
-property implying a screen stack exists, but a stack doesn't help here
-since a form re-show is a full pop-then-push of a *single* screen, not two
-screens coexisting. If a visible gap between the old and new screen is
-still a real problem after `cache_screen`/`load_screen_immediately`, the
-next place to look is whether the new screen's *first frame* can be
-pre-populated before it's shown (its provider snapshot is already fully
-known at `.show()` time - JSON UI itself has no obvious hook for it), not
-something to reach for by default.
+**What genuinely can't be done at all**: hold the *previous* screen fully
+alive and visible while the next one loads. This project already confirmed
+(UI-0) that every `ActionFormData.show()` re-triggers a full screen
+push/pop at the engine level - there's a real, documented
+`render_only_when_topmost` screen property implying a screen stack exists,
+but a stack doesn't help here since a form re-show is a full pop-then-push
+of a *single* screen, not two screens coexisting. The actual, working fix
+for tab-switching specifically turned out to be avoiding the form re-show
+altogether - see `<tabs>` below.
 
 ### HUD: a real always-on overlay, for display only
 
@@ -166,4 +165,10 @@ channel, collection indices, container facts, the preserved-title-text HUD
 trick) were originally measured by [bedrock-core/ui](https://github.com/bedrock-core/ui)
 (MIT) - see its `docs/spikes`. Every one was re-verified in-game by this
 project before being relied on (see the consuming project's own UI-0 spike
-log for what was actually confirmed and when).
+log for what was actually confirmed and when). `<tabs>`'s own working
+mechanism - a hand-built `type: "toggle"` with content nested inside
+`checked_control` - was found by reading `bedrock-core/ui`'s actual compiler
+source (`packages/ui-compiler/src/faces/utils/swap.ts` and its own
+`docs/spikes/S4-toggle-group.md`) after two earlier, independent guesses
+both shipped broken - see `<tabs>` in `docs/UI.md` for the full four-attempt
+history.
