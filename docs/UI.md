@@ -75,37 +75,12 @@ Top-level elements in a `.ui.html` file are `<screen>`, `<hud>` and `<template>`
 | `button on:press="..."` | a pressable; its children are its content |
 | `spacer` | empty space |
 | `use t="name" ...` | pastes a `<template>` (see Templates) |
-| `tabs` / `tab` | real client-side tab switching, no server round trip (below) |
 
 ### Attributes on any element
 
 - **`if="expr"`:** shown only when true. A hidden element with a pixel size along its stack's axis takes no space.
 - **`each="item in list" max="N"`:** repeats the element for each list item, up to `N`. A compiled screen reserves room for N, so pick a real maximum and paginate beyond it. `each="item, i in list"` also gives the index.
 - **`class="a b"`, `id`, `style="width: 40; color: #ffffff"`:** styling (see Styles).
-
-**A `<button>` may never be `if=`/`each=`-gated while nested inside an ancestor `each=` collection.** A button gated that way sends correct data server-side but the client never draws its text - a real JSON UI quirk (compiler-enforced, `lib/compile.js`'s `gateDepth`). Restructure so the outer each-gated element IS the button, with only plain `if=`-gated `<text>`/`<image>` children, and let the action reject an invalid press server-side instead. A plain `if=` ancestor (e.g. a `<tabs>` body) does **not** count - only a real `each=` collection does, since that's the one case actually confirmed to break.
-
-### Tabs - real client-side switching, the documented mechanism
-
-Every value on a form-hosted screen (even plain text) rides a form entry - that's how a screen with hundreds of live fields is possible at all (§1). Switching a `<tabs>` block never does, because it needs no new data: JSON UI's own documentation explicitly lists a legacy `tab` element type as **superseded by toggles** for exactly this use case (`wiki.bedrock.dev`'s json-ui-documentation), and vanilla's own `ui_template_tabs.json` confirms the pattern in shipped code (`$radio_toggle_group` + a shared `$toggle_name`, e.g. `pocket_right_tab_v2`). `<tabs>` compiles to that same mechanism: one real toggle per tab (extending vanilla's `common_toggles.light_text_toggle`), with each tab body's visibility bound directly to its own toggle's live `#toggle_state` via the exact binding shape `wiki.bedrock.dev`'s buttons-and-toggles page documents - pure client state, never touching the server.
-
-```html
-<tabs class="tabs" default="overview" style="width: fill; height: 203">
-  <tab id="overview" label="{t:my.ui.tab.overview}" style="height: 185">
-    ...content...
-  </tab>
-  <tab id="skills" label="{t:my.ui.tab.skills}" style="height: 185">
-    ...content...
-  </tab>
-</tabs>
-```
-
-- `<tabs default="id">`: which `<tab>` starts active. `style` sets the whole block's own placement (bar + all tab bodies together, since a tab body's own height is fixed and every body occupies the same rect - only one is ever visible).
-- `<tab id="..." label="...">`: `label` must be plain text or a bare `{t:key}` (no data - the tab list itself never changes). `style="height: N"` sets that tab's own body height.
-- Tab-bar look comes from CSS custom properties on the `<tabs>` element's own class: `tab-width`/`tab-height` (default 54x16), `gap` (default 3), `tab-color`/`tab-active-color` (label colors, via the toggle's own `$default_text_color`/`$default_checked_text_color`), `background`/`hover-background`/`pressed-background` (the toggle's own idle look), `tab-active-background` (optional highlight image shown only on the active tab).
-- **All tab bodies load in the same provider call as the rest of the screen** - a `<tabs>` block is not lazy. That's the actual cost/benefit trade against just using separate screens with `replace()`: a `<tabs>` screen's first open is a bigger one-time payload (every tab's data at once), but every switch after that is genuinely free (no server round trip, no recomputation) rather than merely fast. Prefer separate screens + `replace()` when a screen's tabs are rarely all viewed in one sitting; prefer `<tabs>` when they typically are.
-- **Known limitation:** a tab's `label` isn't a form field, so it can't go through the usual `{t:key}` → RawMessage/override pipeline. It's compiled to the bare lang key as a literal string with `localize: true`, resolved by the *client's own* `texts/<lang>.lang` - this follows the game's language automatically, but misses a player's in-game language override (a project's own Settings screen, if it has one), unlike every other piece of text on the same screen.
-- First implemented from an incorrect guess (a hand-built `type: "toggle"` control with the wrong state-slot names, addressed via the wrong property) that shipped visibly broken - every tab rendering simultaneously. Rebuilt from the actual documented pattern above and verified structurally (the compiled JSON UI matches vanilla's own toggle/binding shapes exactly), but - like everything new here - still needs a real in-game confirmation before being trusted outright.
 
 ### Text templates
 
