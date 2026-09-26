@@ -4,99 +4,67 @@
 // hand (`node tools/gen-container-screen.js`) whenever the layout needs
 // regenerating, and the OUTPUT file is what actually ships.
 //
-// FIFTH ATTEMPT. What earlier attempts got wrong, in order:
-//   1. Hand-placed standalone common.container_item cells (one per slot,
-//      each given its own collection_index) rendered correctly but
-//      crashed the client the instant an item was placed - later found to
-//      be a missing "$item_collection_name" variable (required by the
-//      game's Bundle-interaction system), NOT a layout or size problem
-//      (confirmed via Content Log: "Expected variable not found in
-//      ancestor tree: '$item_collection_name'"). This also explained why
-//      even AC's own already-shipped horse-type character crashed too -
-//      this file's unconditional replacement governs every container_type
-//      "horse" entity in the game once loaded, AC's included.
-//   2. After adding that variable, hand-placed cells stopped crashing but
-//      EVERY cell read/wrote the SAME underlying slot, confirmed live
-//      (placing one item filled every cell; taking one emptied all of
-//      them) - tried moving collection_index onto a wrapping panel
-//      instead of the container_item control itself, matching this
-//      project's own compile.js indexed()/gated() pattern - same bug,
-//      unchanged.
-//   3. Conclusion, re-reading the Bedrock Wiki's own wording on
-//      collection_index more carefully ("this ALSO allows to modify
-//      specific grid items of a HARDCODED grid"): collection_index is for
-//      PATCHING a cell that already exists inside a real, engine-generated
-//      grid - not for freely sampling an arbitrary index into a
-//      standalone control. There's no working way to hand-place several
-//      independently-indexed cells outside a real type:"grid" at all.
+// EIGHTH ATTEMPT. Findings so far, kept for the record:
+//   1. Hand-placed standalone common.container_item cells crashed on
+//      select - fixed by adding "$item_collection_name": "container_items"
+//      (required by the game's Bundle-interaction system).
+//   2. With that fixed, every hand-placed cell read/wrote the SAME
+//      underlying slot regardless of its own collection_index, on the cell
+//      itself or on a wrapping panel - collection_index appears to only
+//      patch a cell that already exists inside a real, engine-generated
+//      grid, not freely sample an arbitrary index into a standalone
+//      control.
+//   3. A single real native type:"grid" at 90 slots worked correctly for
+//      exactly its first 30 slots - container_type "horse" has a real,
+//      undocumented client-side interaction ceiling there, matching AC's
+//      own real production inventory_size (30) exactly.
+//   4. Furnace's real ingredient/fuel/output slots use no collection_index
+//      at all - each gets its own uniquely named collection, which only
+//      works because the engine natively exposes those specific names for
+//      a furnace. Confirmed this doesn't generalize: three real grids each
+//      given a MADE-UP collection_name crashed identically to finding 1 -
+//      an unrecognized name doesn't render empty, it crashes.
 //
-// So this drops the "three differently-shaped blocks" idea (unreachable
-// without an unsafe technique) in favor of exactly ONE real, native
-// type:"grid" - the same mechanism vanilla's own chest/horse screens
-// already use safely - covering the whole inventory contiguously, with
-// $item_collection_name correctly set this time, and decorative dividers/
-// labels layered behind it for visual organization instead of literally
-// splitting the collection.
+// THIS ATTEMPT: three real, native type:"grid" elements again, but this
+// time all three on the one real collection ("container_items") instead
+// of inventing new names - prompted by noticing the single real-collection
+// grid in the previous experiment (section A) rendered and behaved
+// correctly on its own. Each grid still independently numbers its own
+// cells from index 0 of that shared collection (confirmed earlier, no
+// property offsets a grid's starting index), so this does NOT create
+// three disjoint storage regions - it's three different-shaped WINDOWS
+// onto the same underlying items, all overlapping on whichever indices
+// each grid's own size covers. Worth seeing exactly what that looks and
+// behaves like in practice rather than assuming it's undesirable.
 //
-// Two other hard constraints from earlier attempts still apply and are
-// unchanged: container_type is a fixed 7-value enum with no "use my own
-// screen" option, and per-instance content swapping is confirmed
-// impossible (a "requires: true" test applied identically to every real
-// chest) - so this still replaces horse_screen.json unconditionally, for
-// every container_type "horse" entity including real horses/donkeys/
-// mules/llamas. equip_panel and horse_renderer are kept at their real
-// original offsets for the same reason as before.
-//
-// A SIXTH FINDING, confirmed live with the single grid at 90 slots:
-// container_type "horse" has a real, undocumented client-side interaction
-// ceiling - only the first 30 slots could actually take/give items (no
-// crash, they just silently didn't work), regardless of declared
-// inventory_size. 30 is also AC's own real, production inventory_size for
-// this exact container_type - not a coincidence. container_wide's
-// inventory_size and this grid's dimensions are both capped at 30 now.
+// Two other hard constraints from earlier attempts still apply: container_type
+// is a fixed 7-value enum with no "use my own screen" option, and
+// per-instance content swapping is confirmed impossible - so this still
+// replaces horse_screen.json unconditionally, for every container_type
+// "horse" entity including real horses/donkeys/mules/llamas. equip_panel
+// and horse_renderer are kept at their real original offsets.
 "use strict";
 const fs = require("fs");
 const path = require("path");
 
-// container_type "horse" has a real, undocumented client-side interaction
-// ceiling around 30 slots - confirmed live: with 90 declared, only the
-// first 30 (3 full rows + 3) could actually take/give items, the rest
-// were dead (no crash, just non-functional). 30 is also AC's own real,
-// production inventory_size for this exact container_type - not a
-// coincidence. 6x5 instead of 9-wide specifically so this doesn't read as
-// "a vanilla chest" at a glance.
 const CELL = 18; // vanilla's own slot pixel size
-const COLS = 6;
-const ROWS = 5; // 6x5 = 30, the real working ceiling for container_type "horse"
-const QUICK_ACCESS_ROWS = 1; // purely a decorative split point - not a real boundary in the collection
+const GAP = 10;  // visible daylight between the three grids
+const START_X = 79, START_Y = 18; // clears equip_panel/horse_renderer to the left
 
-const START_X = 79; // clears equip_panel/horse_renderer to the left
-const LABEL_H = 11; // space reserved above the grid for the "Quick Access" label
-const START_Y = 18 + LABEL_H;
-
-const gridWidth = COLS * CELL, gridHeight = ROWS * CELL;
-const panelWidth = START_X + gridWidth + 7;
-const dividerY = START_Y + QUICK_ACCESS_ROWS * CELL;
-const bottomHalfY = START_Y + gridHeight + 12;
-const rootHeight = bottomHalfY + 90 + 40; // grid + player inv block + hotbar/margin
+// [label, columns, rows] - all three read/write the SAME "container_items"
+// collection, each independently starting at its own index 0.
+const SECTIONS = [
+    ["A", 1, 4],    // 1x4 = 4
+    ["B", 9, 10],   // 9x10 = 90
+    ["C", 9, 3],    // 9x3 = 27
+];
 
 const doc = {
     namespace: "horse",
 
-    // The exact same template every real slot cell in vanilla's own grids
-    // already is, with the one required variable those always carry and
-    // our earlier attempts were missing.
+    // One shared item template - every grid below uses the same real
+    // collection, so they can all use the same template.
     "oc_grid_item@common.container_item": { "$item_collection_name": "container_items" },
-
-    oc_grid: {
-        type: "grid",
-        size: [gridWidth, gridHeight],
-        anchor_from: "top_left",
-        anchor_to: "top_left",
-        grid_dimensions: [COLS, ROWS],
-        grid_item_template: "horse.oc_grid_item",
-        collection_name: "container_items",
-    },
 
     oc_panel: {
         type: "panel",
@@ -106,36 +74,15 @@ const doc = {
             { "item_lock_notification_factory@common.item_lock_notification_factory": {} },
             {
                 "root_panel@common.root_panel": {
-                    size: [panelWidth, rootHeight],
+                    size: [panelWidth(), rootHeight()],
                     layer: 1,
                     controls: [
-                        { "common_panel@common.common_panel": { size: [panelWidth, rootHeight] } },
+                        { "common_panel@common.common_panel": { size: [panelWidth(), rootHeight()] } },
                         { "horse_section_label@horse.horse_label": {} },
                         { "equipment@horse.equip_panel": { offset: [7, 18] } },
                         { "renderer@horse.horse_renderer": { offset: [25, 18] } },
-                        {
-                            quick_access_label: {
-                                type: "label", layer: 2, size: [gridWidth, 9],
-                                anchor_from: "top_left", anchor_to: "top_left", offset: [START_X, START_Y - LABEL_H],
-                                text: "Quick Access", color: [0.78, 0.8, 0.93], font_size: "small", shadow: true,
-                            },
-                        },
-                        {
-                            storage_label: {
-                                type: "label", layer: 2, size: [gridWidth, 9],
-                                anchor_from: "top_left", anchor_to: "top_left", offset: [START_X, dividerY + 3],
-                                text: "Storage", color: [0.78, 0.8, 0.93], font_size: "small", shadow: true,
-                            },
-                        },
-                        {
-                            section_divider: {
-                                type: "image", layer: 2, size: [gridWidth, 1],
-                                anchor_from: "top_left", anchor_to: "top_left", offset: [START_X, dividerY - 1],
-                                texture: "textures/ui/White", color: [0.55, 0.55, 0.6],
-                            },
-                        },
-                        { "main_grid@horse.oc_grid": { offset: [START_X, START_Y] } },
-                        { "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": { offset: [0, bottomHalfY] } },
+                        ...gridControls(),
+                        { "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": { offset: [0, bottomHalfY()] } },
                         { "hotbar_grid_template@common.hotbar_grid_template": {} },
                         { "inventory_selected_icon_button@common.inventory_selected_icon_button": {} },
                         { "gamepad_cursor@common.gamepad_cursor_button": {} },
@@ -155,8 +102,38 @@ const doc = {
     },
 };
 
+function gridControls() {
+    let x = START_X;
+    const out = [];
+    for (const [label, cols, rows] of SECTIONS) {
+        out.push({
+            [`grid_${label}`]: {
+                type: "grid",
+                anchor_from: "top_left", anchor_to: "top_left",
+                size: [cols * CELL, rows * CELL],
+                offset: [x, START_Y],
+                grid_dimensions: [cols, rows],
+                grid_item_template: "horse.oc_grid_item",
+                collection_name: "container_items",
+            },
+        });
+        x += cols * CELL + GAP;
+    }
+    return out;
+}
+function panelWidth() {
+    return SECTIONS.reduce((acc, [, cols]) => acc + cols * CELL + GAP, START_X) - GAP + 7;
+}
+function bottomHalfY() {
+    const maxGridHeight = Math.max(...SECTIONS.map(([, , rows]) => rows * CELL));
+    return START_Y + maxGridHeight + 12;
+}
+function rootHeight() {
+    return bottomHalfY() + 90 + 40; // grids + player inv block + hotbar/margin
+}
+
 const outPath = path.join(__dirname, "..", "rp", "ui", "horse_screen.json");
 fs.writeFileSync(outPath, JSON.stringify(doc, null, 2) + "\n");
 console.log(`Wrote ${outPath}`);
-console.log(`Real single grid: ${COLS}x${ROWS} = ${COLS * ROWS} slots (must match container_wide's inventory_size)`);
-console.log(`Panel size: ${panelWidth}x${rootHeight}`);
+console.log(`Sections (all on "container_items"): ${SECTIONS.map(([l, c, r]) => `${l}=${c}x${r}=${c * r}`).join(", ")}`);
+console.log(`Panel size: ${panelWidth()}x${rootHeight()}`);
