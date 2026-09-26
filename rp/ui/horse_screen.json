@@ -89,7 +89,8 @@
                   2
                 ],
                 "grid_item_template": "horse.oc_grid_item",
-                "collection_name": "container_items"
+                "collection_name": "container_items",
+                "collection_index": 5
               }
             },
             {
