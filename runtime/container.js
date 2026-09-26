@@ -105,11 +105,16 @@ export function openContainer(player, spec) {
     // EntityTameableComponent.tame() API, not the natural feed-item ritual.
     // A container_type "container" entity (no tameable component) just
     // skips this - nothing to tame, nothing changes for it.
+    let tamed = false;
     try {
         const tameable = entity.getComponent("minecraft:tameable");
-        if (tameable) { tameable.tame(player); entity.triggerEvent(`${NS}:container_tamed`); }
+        if (tameable) { tameable.tame(player); entity.triggerEvent(`${NS}:container_tamed`); tamed = true; }
     } catch (e) { /* fine */ }
-    const container = entity.getComponent("minecraft:inventory").container;
+    // minecraft:inventory is only added by the tame event's own component
+    // group (it isn't on the base entity at all for a tameable variant -
+    // see container_wide.json), so it may not exist for a tick or two after
+    // triggerEvent() - retry instead of assuming it's synchronous.
+    let container = entity.getComponent("minecraft:inventory")?.container ?? null;
     const locked = new Set(spec.locked ?? []);
     const expected = new Array(size).fill(undefined);  // what we last put in each slot
     let sigs = new Array(size).fill("-");              // signatures of the last seen contents
@@ -120,27 +125,42 @@ export function openContainer(player, spec) {
     const handle = {
         entity, player,
         set(slot, item) {
+            if (!container) return;
             expected[slot] = item;
             try { container.setItem(slot, item?.clone?.() ?? item); } catch (e) { /* fine */ }
             sigs[slot] = sig(item);
         },
         setAll(items) { for (let i = 0; i < size; i++) handle.set(i, items[i]); },
-        items() { const out = []; for (let i = 0; i < size; i++) out.push(container.getItem(i)); return out; },
+        items() { const out = []; if (!container) return out; for (let i = 0; i < size; i++) out.push(container.getItem(i)); return out; },
         close() {
             if (closed) return;
             closed = true;
             system.clearRun(run);
             open.delete(player.id);
             try { if (entity.isValid) spec.onSync?.(handle.items(), handle); } catch (e) { console.warn(`[${TAG}] container final sync: ${e}`); }
-            try { if (entity.isValid) { container.clearAll(); entity.remove(); } } catch (e) { /* fine */ }
+            try { if (entity.isValid) { container?.clearAll(); entity.remove(); } } catch (e) { /* fine */ }
             try { sweepMarkers(player); } catch (e) { /* offline */ }
             try { spec.onClose?.(handle); } catch (e) { console.warn(`[${TAG}] container onClose: ${e}`); }
         },
     };
-    handle.setAll(spec.slots ?? []);
+    if (container) handle.setAll(spec.slots ?? []);
+    else if (tamed) {
+        // minecraft:inventory isn't there yet - poll for it over a few
+        // ticks (component-group additions from triggerEvent() aren't
+        // guaranteed synchronous) before giving up.
+        let tries = 0;
+        const bind = () => {
+            container = entity.getComponent("minecraft:inventory")?.container ?? null;
+            if (container) { handle.setAll(spec.slots ?? []); return; }
+            if (++tries < 10) system.run(bind);
+            else console.warn(`[${TAG}] container: minecraft:inventory never appeared on ${entityType} after taming`);
+        };
+        system.run(bind);
+    }
 
     const run = system.runInterval(() => {
         try {
+            if (!container) return; // still waiting on the tame-triggered component group
             if (!entity.isValid || !player.isValid || (spec.isValid && !spec.isValid())) { handle.close(); return; }
             const d = Math.hypot(player.location.x - entity.location.x, player.location.y - entity.location.y, player.location.z - entity.location.z);
             away = d > MAX_DISTANCE || player.dimension.id !== entity.dimension.id ? away + 1 : 0;
