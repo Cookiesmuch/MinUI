@@ -39,17 +39,26 @@
     ]
   },
 
-  "small_chest_screen": {
-    "modifications": [
+  "small_chest_screen@common.inventory_screen_common": {
+    "$close_on_player_hurt|default": true,
+    "$use_custom_pocket_toast|default": false,
+    "close_on_player_hurt": "$close_on_player_hurt",
+    "use_custom_pocket_toast": "$use_custom_pocket_toast",
+    "variables": [
       {
-        "array_name": "variables",
-        "operation": "insert_front",
-        "value": [
-          {
-            "requires": "($container_title = 'oc_isolated_test')",
-            "$screen_content": "chest.oc_isolated_test_panel"
-          }
-        ]
+        "requires": "($container_title = 'oc_isolated_test')",
+        "$screen_content": "chest.oc_isolated_test_panel"
+      },
+      {
+        "requires": "$desktop_screen",
+        "$screen_content": "chest.small_chest_panel",
+        "$screen_bg_content": "common.screen_background",
+        "$screen_background_alpha": 0.4
+      },
+      {
+        "requires": "$pocket_screen",
+        "$use_custom_pocket_toast": true,
+        "$screen_content": "pocket_containers.small_chest_panel"
       }
     ]
   }
