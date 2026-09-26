@@ -1,22 +1,13 @@
 {
   "namespace": "horse",
-  "oc_grid_item@common.container_item": {
+  "oc_grid_item_A@common.container_item": {
     "$item_collection_name": "container_items"
   },
-  "oc_grid": {
-    "type": "grid",
-    "size": [
-      108,
-      90
-    ],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "grid_dimensions": [
-      6,
-      5
-    ],
-    "grid_item_template": "horse.oc_grid_item",
-    "collection_name": "container_items"
+  "oc_grid_item_B@common.container_item": {
+    "$item_collection_name": "container_items_b"
+  },
+  "oc_grid_item_C@common.container_item": {
+    "$item_collection_name": "container_items_c"
   },
   "oc_panel": {
     "type": "panel",
@@ -33,16 +24,16 @@
       {
         "root_panel@common.root_panel": {
           "size": [
-            194,
-            261
+            322,
+            268
           ],
           "layer": 1,
           "controls": [
             {
               "common_panel@common.common_panel": {
                 "size": [
-                  194,
-                  261
+                  322,
+                  268
                 ]
               }
             },
@@ -66,88 +57,73 @@
               }
             },
             {
-              "quick_access_label": {
-                "type": "label",
-                "layer": 2,
-                "size": [
-                  108,
-                  9
-                ],
+              "grid_A": {
+                "type": "grid",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "size": [
+                  18,
+                  72
+                ],
                 "offset": [
                   79,
                   18
                 ],
-                "text": "Quick Access",
-                "color": [
-                  0.78,
-                  0.8,
-                  0.93
+                "grid_dimensions": [
+                  1,
+                  4
                 ],
-                "font_size": "small",
-                "shadow": true
+                "grid_item_template": "horse.oc_grid_item_A",
+                "collection_name": "container_items"
               }
             },
             {
-              "storage_label": {
-                "type": "label",
-                "layer": 2,
-                "size": [
-                  108,
-                  9
-                ],
+              "grid_B": {
+                "type": "grid",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "offset": [
-                  79,
-                  50
-                ],
-                "text": "Storage",
-                "color": [
-                  0.78,
-                  0.8,
-                  0.93
-                ],
-                "font_size": "small",
-                "shadow": true
-              }
-            },
-            {
-              "section_divider": {
-                "type": "image",
-                "layer": 2,
                 "size": [
                   108,
-                  1
+                  90
                 ],
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
                 "offset": [
-                  79,
-                  46
+                  107,
+                  18
                 ],
-                "texture": "textures/ui/White",
-                "color": [
-                  0.55,
-                  0.55,
-                  0.6
-                ]
+                "grid_dimensions": [
+                  6,
+                  5
+                ],
+                "grid_item_template": "horse.oc_grid_item_B",
+                "collection_name": "container_items_b"
               }
             },
             {
-              "main_grid@horse.oc_grid": {
+              "grid_C": {
+                "type": "grid",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "size": [
+                  90,
+                  108
+                ],
                 "offset": [
-                  79,
-                  29
-                ]
+                  225,
+                  18
+                ],
+                "grid_dimensions": [
+                  5,
+                  6
+                ],
+                "grid_item_template": "horse.oc_grid_item_C",
+                "collection_name": "container_items_c"
               }
             },
             {
               "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
                 "offset": [
                   0,
-                  131
+                  138
                 ]
               }
             },
