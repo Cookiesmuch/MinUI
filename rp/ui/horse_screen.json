@@ -18,16 +18,16 @@
       {
         "root_panel@common.root_panel": {
           "size": [
-            132,
-            196
+            448,
+            340
           ],
           "layer": 1,
           "controls": [
             {
               "common_panel@common.common_panel": {
                 "size": [
-                  132,
-                  196
+                  448,
+                  340
                 ]
               }
             },
@@ -57,7 +57,7 @@
                 "anchor_to": "top_left",
                 "size": [
                   18,
-                  36
+                  72
                 ],
                 "offset": [
                   79,
@@ -65,7 +65,7 @@
                 ],
                 "grid_dimensions": [
                   1,
-                  2
+                  4
                 ],
                 "grid_item_template": "horse.oc_grid_item",
                 "collection_name": "container_items"
@@ -77,27 +77,47 @@
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "size": [
-                  18,
-                  36
+                  162,
+                  180
                 ],
                 "offset": [
                   107,
                   18
                 ],
                 "grid_dimensions": [
-                  1,
-                  2
+                  9,
+                  10
                 ],
                 "grid_item_template": "horse.oc_grid_item",
-                "collection_name": "container_items",
-                "collection_index": 5
+                "collection_name": "container_items"
+              }
+            },
+            {
+              "grid_C": {
+                "type": "grid",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "size": [
+                  162,
+                  54
+                ],
+                "offset": [
+                  279,
+                  18
+                ],
+                "grid_dimensions": [
+                  9,
+                  3
+                ],
+                "grid_item_template": "horse.oc_grid_item",
+                "collection_name": "container_items"
               }
             },
             {
               "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
                 "offset": [
                   0,
-                  66
+                  210
                 ]
               }
             },

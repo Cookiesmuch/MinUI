@@ -51,16 +51,12 @@ const CELL = 18; // vanilla's own slot pixel size
 const GAP = 10;  // visible daylight between the three grids
 const START_X = 79, START_Y = 18; // clears equip_panel/horse_renderer to the left
 
-// DIAGNOSTIC: confirmed two grids on one collection always mirror index 0
-// exactly (identical item + count in both, every time, three clean
-// repeated tests). Never tried collection_index ON THE GRID CONTROL
-// ITSELF though - only on standalone cells/wrapping panels, which is a
-// different context. Testing that directly now: grid A left at its
-// default (index 0), grid B given collection_index: 5 to see if it reads
-// starting from index 5 instead of mirroring A.
+// [label, columns, rows] - all three read/write the SAME "container_items"
+// collection, each independently starting at its own index 0.
 const SECTIONS = [
-    ["A", 1, 2, 0], // 1x2 = 2, default start (index 0)
-    ["B", 1, 2, 5], // 1x2 = 2, collection_index: 5 - does this offset where it reads from?
+    ["A", 1, 4],    // 1x4 = 4
+    ["B", 9, 10],   // 9x10 = 90
+    ["C", 9, 3],    // 9x3 = 27
 ];
 
 const doc = {
@@ -109,18 +105,18 @@ const doc = {
 function gridControls() {
     let x = START_X;
     const out = [];
-    for (const [label, cols, rows, startIndex] of SECTIONS) {
-        const grid = {
-            type: "grid",
-            anchor_from: "top_left", anchor_to: "top_left",
-            size: [cols * CELL, rows * CELL],
-            offset: [x, START_Y],
-            grid_dimensions: [cols, rows],
-            grid_item_template: "horse.oc_grid_item",
-            collection_name: "container_items",
-        };
-        if (startIndex) grid.collection_index = startIndex;
-        out.push({ [`grid_${label}`]: grid });
+    for (const [label, cols, rows] of SECTIONS) {
+        out.push({
+            [`grid_${label}`]: {
+                type: "grid",
+                anchor_from: "top_left", anchor_to: "top_left",
+                size: [cols * CELL, rows * CELL],
+                offset: [x, START_Y],
+                grid_dimensions: [cols, rows],
+                grid_item_template: "horse.oc_grid_item",
+                collection_name: "container_items",
+            },
+        });
         x += cols * CELL + GAP;
     }
     return out;
@@ -139,5 +135,5 @@ function rootHeight() {
 const outPath = path.join(__dirname, "..", "rp", "ui", "horse_screen.json");
 fs.writeFileSync(outPath, JSON.stringify(doc, null, 2) + "\n");
 console.log(`Wrote ${outPath}`);
-console.log(`Sections (all on "container_items"): ${SECTIONS.map(([l, c, r, s]) => `${l}=${c}x${r}=${c * r}@index${s ?? 0}`).join(", ")}`);
+console.log(`Sections (all on "container_items"): ${SECTIONS.map(([l, c, r]) => `${l}=${c}x${r}=${c * r}`).join(", ")}`);
 console.log(`Panel size: ${panelWidth()}x${rootHeight()}`);
