@@ -44,9 +44,10 @@
     "$use_custom_pocket_toast|default": false,
     "close_on_player_hurt": "$close_on_player_hurt",
     "use_custom_pocket_toast": "$use_custom_pocket_toast",
+    "$atitle": "$container_title",
     "variables": [
       {
-        "requires": "($container_title = 'oc_isolated_test')",
+        "requires": "($atitle = 'oc_isolated_test')",
         "$screen_content": "chest.oc_isolated_test_panel"
       },
       {
