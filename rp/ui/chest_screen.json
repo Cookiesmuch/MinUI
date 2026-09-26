@@ -1,0 +1,56 @@
+{
+  "namespace": "chest",
+
+  "oc_isolated_test_panel": {
+    "type": "panel",
+    "controls": [
+      { "container_gamepad_helpers@common.container_gamepad_helpers": {} },
+      { "selected_item_details_factory@common.selected_item_details_factory": {} },
+      { "item_lock_notification_factory@common.item_lock_notification_factory": {} },
+      {
+        "root_panel@common.root_panel": {
+          "layer": 1,
+          "controls": [
+            { "common_panel@common.common_panel": {} },
+            {
+              "oc_test_marker": {
+                "type": "label",
+                "layer": 20,
+                "size": [ "100%", 20 ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "text": "IF YOU SEE THIS, THE SWAP WORKED",
+                "color": [ 1.0, 0.2, 0.2 ],
+                "text_alignment": "center",
+                "font_size": "large",
+                "shadow": true
+              }
+            },
+            { "small_chest_panel_top_half@chest.small_chest_panel_top_half": {} },
+            { "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {} },
+            { "hotbar_grid@common.hotbar_grid_template": {} },
+            { "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {} },
+            { "flying_item_renderer@common.flying_item_renderer": { "layer": 15 } },
+            { "inventory_selected_icon_button@common.inventory_selected_icon_button": {} },
+            { "gamepad_cursor@common.gamepad_cursor_button": {} }
+          ]
+        }
+      }
+    ]
+  },
+
+  "small_chest_screen": {
+    "modifications": [
+      {
+        "array_name": "variables",
+        "operation": "insert_front",
+        "value": [
+          {
+            "requires": "($container_title = 'oc_isolated_test')",
+            "$screen_content": "chest.oc_isolated_test_panel"
+          }
+        ]
+      }
+    ]
+  }
+}
