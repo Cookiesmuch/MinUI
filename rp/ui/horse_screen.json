@@ -1,13 +1,22 @@
 {
   "namespace": "horse",
-  "oc_grid_item_A@common.container_item": {
+  "oc_grid_item@common.container_item": {
     "$item_collection_name": "container_items"
   },
-  "oc_grid_item_B@common.container_item": {
-    "$item_collection_name": "container_items_b"
-  },
-  "oc_grid_item_C@common.container_item": {
-    "$item_collection_name": "container_items_c"
+  "oc_grid": {
+    "type": "grid",
+    "size": [
+      108,
+      90
+    ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "grid_dimensions": [
+      6,
+      5
+    ],
+    "grid_item_template": "horse.oc_grid_item",
+    "collection_name": "container_items"
   },
   "oc_panel": {
     "type": "panel",
@@ -24,16 +33,16 @@
       {
         "root_panel@common.root_panel": {
           "size": [
-            322,
-            268
+            194,
+            261
           ],
           "layer": 1,
           "controls": [
             {
               "common_panel@common.common_panel": {
                 "size": [
-                  322,
-                  268
+                  194,
+                  261
                 ]
               }
             },
@@ -57,73 +66,88 @@
               }
             },
             {
-              "grid_A": {
-                "type": "grid",
+              "quick_access_label": {
+                "type": "label",
+                "layer": 2,
+                "size": [
+                  108,
+                  9
+                ],
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "size": [
-                  18,
-                  72
-                ],
                 "offset": [
                   79,
                   18
                 ],
-                "grid_dimensions": [
-                  1,
-                  4
+                "text": "Quick Access",
+                "color": [
+                  0.78,
+                  0.8,
+                  0.93
                 ],
-                "grid_item_template": "horse.oc_grid_item_A",
-                "collection_name": "container_items"
+                "font_size": "small",
+                "shadow": true
               }
             },
             {
-              "grid_B": {
-                "type": "grid",
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
+              "storage_label": {
+                "type": "label",
+                "layer": 2,
                 "size": [
                   108,
-                  90
+                  9
                 ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
                 "offset": [
-                  107,
-                  18
+                  79,
+                  50
                 ],
-                "grid_dimensions": [
-                  6,
-                  5
+                "text": "Storage",
+                "color": [
+                  0.78,
+                  0.8,
+                  0.93
                 ],
-                "grid_item_template": "horse.oc_grid_item_B",
-                "collection_name": "container_items_b"
+                "font_size": "small",
+                "shadow": true
               }
             },
             {
-              "grid_C": {
-                "type": "grid",
+              "section_divider": {
+                "type": "image",
+                "layer": 2,
+                "size": [
+                  108,
+                  1
+                ],
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "size": [
-                  90,
-                  108
-                ],
                 "offset": [
-                  225,
-                  18
+                  79,
+                  46
                 ],
-                "grid_dimensions": [
-                  5,
-                  6
-                ],
-                "grid_item_template": "horse.oc_grid_item_C",
-                "collection_name": "container_items_c"
+                "texture": "textures/ui/White",
+                "color": [
+                  0.55,
+                  0.55,
+                  0.6
+                ]
+              }
+            },
+            {
+              "main_grid@horse.oc_grid": {
+                "offset": [
+                  79,
+                  29
+                ]
               }
             },
             {
               "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
                 "offset": [
                   0,
-                  138
+                  131
                 ]
               }
             },
