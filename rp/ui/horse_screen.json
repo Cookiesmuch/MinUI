@@ -48,1094 +48,1682 @@
               }
             },
             {
-              "oc_cell_A_0@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_A_0": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  79,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 0,
-                "offset": [
-                  79,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_A_1@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_A_1": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  79,
+                  36
+                ],
                 "collection_name": "container_items",
                 "collection_index": 1,
-                "offset": [
-                  79,
-                  36
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_A_2@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_A_2": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  79,
+                  54
+                ],
                 "collection_name": "container_items",
                 "collection_index": 2,
-                "offset": [
-                  79,
-                  54
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_A_3@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_A_3": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  79,
+                  72
+                ],
                 "collection_name": "container_items",
                 "collection_index": 3,
-                "offset": [
-                  79,
-                  72
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_0@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_0": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  107,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 4,
-                "offset": [
-                  107,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_1@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_1": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  125,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 5,
-                "offset": [
-                  125,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_2@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_2": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  143,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 6,
-                "offset": [
-                  143,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_3@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_3": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  161,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 7,
-                "offset": [
-                  161,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_4@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_4": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  179,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 8,
-                "offset": [
-                  179,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_5@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_5": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  197,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 9,
-                "offset": [
-                  197,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_6@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_6": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  215,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 10,
-                "offset": [
-                  215,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_7@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_7": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  233,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 11,
-                "offset": [
-                  233,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_8@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_8": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  251,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 12,
-                "offset": [
-                  251,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_9@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_9": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  107,
+                  36
+                ],
                 "collection_name": "container_items",
                 "collection_index": 13,
-                "offset": [
-                  107,
-                  36
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_10@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_10": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  125,
+                  36
+                ],
                 "collection_name": "container_items",
                 "collection_index": 14,
-                "offset": [
-                  125,
-                  36
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_11@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_11": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  143,
+                  36
+                ],
                 "collection_name": "container_items",
                 "collection_index": 15,
-                "offset": [
-                  143,
-                  36
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_12@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_12": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  161,
+                  36
+                ],
                 "collection_name": "container_items",
                 "collection_index": 16,
-                "offset": [
-                  161,
-                  36
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_13@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_13": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  179,
+                  36
+                ],
                 "collection_name": "container_items",
                 "collection_index": 17,
-                "offset": [
-                  179,
-                  36
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_14@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_14": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  197,
+                  36
+                ],
                 "collection_name": "container_items",
                 "collection_index": 18,
-                "offset": [
-                  197,
-                  36
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_15@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_15": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  215,
+                  36
+                ],
                 "collection_name": "container_items",
                 "collection_index": 19,
-                "offset": [
-                  215,
-                  36
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_16@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_16": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  233,
+                  36
+                ],
                 "collection_name": "container_items",
                 "collection_index": 20,
-                "offset": [
-                  233,
-                  36
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_17@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_17": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  251,
+                  36
+                ],
                 "collection_name": "container_items",
                 "collection_index": 21,
-                "offset": [
-                  251,
-                  36
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_18@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_18": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  107,
+                  54
+                ],
                 "collection_name": "container_items",
                 "collection_index": 22,
-                "offset": [
-                  107,
-                  54
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_19@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_19": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  125,
+                  54
+                ],
                 "collection_name": "container_items",
                 "collection_index": 23,
-                "offset": [
-                  125,
-                  54
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_20@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_20": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  143,
+                  54
+                ],
                 "collection_name": "container_items",
                 "collection_index": 24,
-                "offset": [
-                  143,
-                  54
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_21@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_21": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  161,
+                  54
+                ],
                 "collection_name": "container_items",
                 "collection_index": 25,
-                "offset": [
-                  161,
-                  54
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_22@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_22": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  179,
+                  54
+                ],
                 "collection_name": "container_items",
                 "collection_index": 26,
-                "offset": [
-                  179,
-                  54
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_23@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_23": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  197,
+                  54
+                ],
                 "collection_name": "container_items",
                 "collection_index": 27,
-                "offset": [
-                  197,
-                  54
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_24@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_24": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  215,
+                  54
+                ],
                 "collection_name": "container_items",
                 "collection_index": 28,
-                "offset": [
-                  215,
-                  54
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_25@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_25": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  233,
+                  54
+                ],
                 "collection_name": "container_items",
                 "collection_index": 29,
-                "offset": [
-                  233,
-                  54
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_26@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_26": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  251,
+                  54
+                ],
                 "collection_name": "container_items",
                 "collection_index": 30,
-                "offset": [
-                  251,
-                  54
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_27@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_27": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  107,
+                  72
+                ],
                 "collection_name": "container_items",
                 "collection_index": 31,
-                "offset": [
-                  107,
-                  72
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_28@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_28": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  125,
+                  72
+                ],
                 "collection_name": "container_items",
                 "collection_index": 32,
-                "offset": [
-                  125,
-                  72
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_29@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_29": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  143,
+                  72
+                ],
                 "collection_name": "container_items",
                 "collection_index": 33,
-                "offset": [
-                  143,
-                  72
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_30@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_30": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  161,
+                  72
+                ],
                 "collection_name": "container_items",
                 "collection_index": 34,
-                "offset": [
-                  161,
-                  72
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_31@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_31": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  179,
+                  72
+                ],
                 "collection_name": "container_items",
                 "collection_index": 35,
-                "offset": [
-                  179,
-                  72
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_32@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_32": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  197,
+                  72
+                ],
                 "collection_name": "container_items",
                 "collection_index": 36,
-                "offset": [
-                  197,
-                  72
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_33@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_33": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  215,
+                  72
+                ],
                 "collection_name": "container_items",
                 "collection_index": 37,
-                "offset": [
-                  215,
-                  72
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_34@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_34": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  233,
+                  72
+                ],
                 "collection_name": "container_items",
                 "collection_index": 38,
-                "offset": [
-                  233,
-                  72
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_35@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_35": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  251,
+                  72
+                ],
                 "collection_name": "container_items",
                 "collection_index": 39,
-                "offset": [
-                  251,
-                  72
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_36@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_36": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  107,
+                  90
+                ],
                 "collection_name": "container_items",
                 "collection_index": 40,
-                "offset": [
-                  107,
-                  90
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_37@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_37": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  125,
+                  90
+                ],
                 "collection_name": "container_items",
                 "collection_index": 41,
-                "offset": [
-                  125,
-                  90
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_38@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_38": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 42,
                 "offset": [
                   143,
                   90
+                ],
+                "collection_name": "container_items",
+                "collection_index": 42,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_39@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_39": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 43,
                 "offset": [
                   161,
                   90
+                ],
+                "collection_name": "container_items",
+                "collection_index": 43,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_40@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_40": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 44,
                 "offset": [
                   179,
                   90
+                ],
+                "collection_name": "container_items",
+                "collection_index": 44,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_41@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_41": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 45,
                 "offset": [
                   197,
                   90
+                ],
+                "collection_name": "container_items",
+                "collection_index": 45,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_42@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_42": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 46,
                 "offset": [
                   215,
                   90
+                ],
+                "collection_name": "container_items",
+                "collection_index": 46,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_43@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_43": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 47,
                 "offset": [
                   233,
                   90
+                ],
+                "collection_name": "container_items",
+                "collection_index": 47,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_44@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_44": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 48,
                 "offset": [
                   251,
                   90
+                ],
+                "collection_name": "container_items",
+                "collection_index": 48,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_45@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_45": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 49,
                 "offset": [
                   107,
                   108
+                ],
+                "collection_name": "container_items",
+                "collection_index": 49,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_46@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_46": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 50,
                 "offset": [
                   125,
                   108
+                ],
+                "collection_name": "container_items",
+                "collection_index": 50,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_47@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_47": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 51,
                 "offset": [
                   143,
                   108
+                ],
+                "collection_name": "container_items",
+                "collection_index": 51,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_48@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_48": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 52,
                 "offset": [
                   161,
                   108
+                ],
+                "collection_name": "container_items",
+                "collection_index": 52,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_49@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_49": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 53,
                 "offset": [
                   179,
                   108
+                ],
+                "collection_name": "container_items",
+                "collection_index": 53,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_50@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_50": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 54,
                 "offset": [
                   197,
                   108
+                ],
+                "collection_name": "container_items",
+                "collection_index": 54,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_51@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_51": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 55,
                 "offset": [
                   215,
                   108
+                ],
+                "collection_name": "container_items",
+                "collection_index": 55,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_52@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_52": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 56,
                 "offset": [
                   233,
                   108
+                ],
+                "collection_name": "container_items",
+                "collection_index": 56,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_B_53@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_B_53": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 57,
                 "offset": [
                   251,
                   108
+                ],
+                "collection_name": "container_items",
+                "collection_index": 57,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_0@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_0": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  279,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 58,
-                "offset": [
-                  279,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_1@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_1": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  297,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 59,
-                "offset": [
-                  297,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_2@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_2": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  315,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 60,
-                "offset": [
-                  315,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_3@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_3": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  333,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 61,
-                "offset": [
-                  333,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_4@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_4": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  351,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 62,
-                "offset": [
-                  351,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_5@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_5": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  369,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 63,
-                "offset": [
-                  369,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_6@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_6": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  387,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 64,
-                "offset": [
-                  387,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_7@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_7": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  405,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 65,
-                "offset": [
-                  405,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_8@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_8": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  423,
+                  18
+                ],
                 "collection_name": "container_items",
                 "collection_index": 66,
-                "offset": [
-                  423,
-                  18
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_9@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_9": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "offset": [
+                  279,
+                  36
+                ],
                 "collection_name": "container_items",
                 "collection_index": 67,
-                "offset": [
-                  279,
-                  36
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_10@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_10": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 68,
                 "offset": [
                   297,
                   36
+                ],
+                "collection_name": "container_items",
+                "collection_index": 68,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_11@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_11": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 69,
                 "offset": [
                   315,
                   36
+                ],
+                "collection_name": "container_items",
+                "collection_index": 69,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_12@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_12": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 70,
                 "offset": [
                   333,
                   36
+                ],
+                "collection_name": "container_items",
+                "collection_index": 70,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_13@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_13": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 71,
                 "offset": [
                   351,
                   36
+                ],
+                "collection_name": "container_items",
+                "collection_index": 71,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_14@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_14": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 72,
                 "offset": [
                   369,
                   36
+                ],
+                "collection_name": "container_items",
+                "collection_index": 72,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_15@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_15": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 73,
                 "offset": [
                   387,
                   36
+                ],
+                "collection_name": "container_items",
+                "collection_index": 73,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_16@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_16": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 74,
                 "offset": [
                   405,
                   36
+                ],
+                "collection_name": "container_items",
+                "collection_index": 74,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_17@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_17": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 75,
                 "offset": [
                   423,
                   36
+                ],
+                "collection_name": "container_items",
+                "collection_index": 75,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_18@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_18": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 76,
                 "offset": [
                   279,
                   54
+                ],
+                "collection_name": "container_items",
+                "collection_index": 76,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_19@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_19": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 77,
                 "offset": [
                   297,
                   54
+                ],
+                "collection_name": "container_items",
+                "collection_index": 77,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_20@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_20": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 78,
                 "offset": [
                   315,
                   54
+                ],
+                "collection_name": "container_items",
+                "collection_index": 78,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_21@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_21": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 79,
                 "offset": [
                   333,
                   54
+                ],
+                "collection_name": "container_items",
+                "collection_index": 79,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_22@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_22": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 80,
                 "offset": [
                   351,
                   54
+                ],
+                "collection_name": "container_items",
+                "collection_index": 80,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_23@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_23": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 81,
                 "offset": [
                   369,
                   54
+                ],
+                "collection_name": "container_items",
+                "collection_index": 81,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_24@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_24": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 82,
                 "offset": [
                   387,
                   54
+                ],
+                "collection_name": "container_items",
+                "collection_index": 82,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },
             {
-              "oc_cell_C_25@common.container_item": {
-                "$item_collection_name": "container_items",
+              "oc_cell_C_25": {
+                "type": "panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "collection_name": "container_items",
-                "collection_index": 83,
                 "offset": [
                   405,
                   54
+                ],
+                "collection_name": "container_items",
+                "collection_index": 83,
+                "controls": [
+                  {
+                    "item@common.container_item": {
+                      "$item_collection_name": "container_items"
+                    }
+                  }
                 ]
               }
             },

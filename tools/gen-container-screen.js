@@ -62,14 +62,25 @@ function sectionCells(section, startIndex, offsetX) {
     const cells = [];
     for (let i = 0; i < count; i++) {
         const row = Math.floor(i / cols), col = i % cols;
+        // collection_index establishes a scope that descendant BINDINGS
+        // read from - setting it directly on the same control as
+        // common.container_item doesn't work (every cell ends up reading
+        // the same data, confirmed live). It has to sit on a plain
+        // wrapping panel, with the actual item-rendering content nested
+        // inside as a child, exactly like this project's own compiler
+        // already does elsewhere (compile.js's indexed()/gated()) and like
+        // a real type:"grid" does natively per-cell.
         cells.push({
-            [`oc_cell_${label}_${i}@common.container_item`]: {
-                "$item_collection_name": "container_items",
+            [`oc_cell_${label}_${i}`]: {
+                type: "panel",
                 anchor_from: "top_left",
                 anchor_to: "top_left",
+                offset: [offsetX + col * CELL, START_Y + row * CELL],
                 collection_name: "container_items",
                 collection_index: startIndex + i,
-                offset: [offsetX + col * CELL, START_Y + row * CELL],
+                controls: [
+                    { [`item@common.container_item`]: { "$item_collection_name": "container_items" } },
+                ],
             },
         });
     }
