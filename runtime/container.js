@@ -18,7 +18,9 @@
 //
 //   const handle = openContainer(player, {
 //     title: "Yuki's Bag",
-//     slots: [ItemStack | undefined] x 27,   // initial contents
+//     entityType: "<ns>:container",          // optional, defaults to the standard satchel (must be in TYPES)
+//     size: 27,                              // optional, defaults to 27 - must match entityType's own inventory_size
+//     slots: [ItemStack | undefined] x size, // initial contents
 //     locked: [6, 7, 8],                     // button / filler slots
 //     onSync(items, handle) {},              // unlocked slots changed
 //     onPress(slot, handle) {},              // a locked slot was clicked
@@ -34,11 +36,13 @@ import { world, system, ItemStack } from "@minecraft/server";
 import { NS, TAG } from "../ids.js";
 
 const TYPE = `${NS}:container`;
+const FAMILY = `${NS}_container`; // shared by every container-host entity variant (see TYPES)
+const TYPES = new Set([TYPE, `${NS}:container_wide`]); // spec.entityType may name any of these
 const POLL_TICKS = 4;
 const IDLE_TICKS = 20 * 60 * 5;
 const MAX_DISTANCE = 7;
 const MARKER = "§r§8oc:ui";
-const SIZE = 27;
+const SIZE = 27; // default slot count when spec.size is omitted (the standard satchel)
 
 const open = new Map(); // playerId -> handle (one container per player)
 
@@ -89,13 +93,16 @@ export function closeContainer(player) { open.get(player.id)?.close(); }
 
 export function openContainer(player, spec) {
     closeContainer(player);
-    const entity = player.dimension.spawnEntity(TYPE, spawnPoint(player));
+    const entityType = spec.entityType ?? TYPE;
+    if (!TYPES.has(entityType)) throw new Error(`openContainer: unknown entityType "${entityType}" - add it to container.js's TYPES set first`);
+    const size = spec.size ?? SIZE;
+    const entity = player.dimension.spawnEntity(entityType, spawnPoint(player));
     try { entity.nameTag = spec.title ?? ""; } catch (e) { /* fine */ }
     try { entity.setRotation({ x: 0, y: player.getRotation().y + 180 }); } catch (e) { /* fine */ }
     const container = entity.getComponent("minecraft:inventory").container;
     const locked = new Set(spec.locked ?? []);
-    const expected = new Array(SIZE).fill(undefined);  // what we last put in each slot
-    let sigs = new Array(SIZE).fill("-");              // signatures of the last seen contents
+    const expected = new Array(size).fill(undefined);  // what we last put in each slot
+    let sigs = new Array(size).fill("-");              // signatures of the last seen contents
     let lastChange = system.currentTick;
     let away = 0;
     let closed = false;
@@ -107,8 +114,8 @@ export function openContainer(player, spec) {
             try { container.setItem(slot, item?.clone?.() ?? item); } catch (e) { /* fine */ }
             sigs[slot] = sig(item);
         },
-        setAll(items) { for (let i = 0; i < SIZE; i++) handle.set(i, items[i]); },
-        items() { const out = []; for (let i = 0; i < SIZE; i++) out.push(container.getItem(i)); return out; },
+        setAll(items) { for (let i = 0; i < size; i++) handle.set(i, items[i]); },
+        items() { const out = []; for (let i = 0; i < size; i++) out.push(container.getItem(i)); return out; },
         close() {
             if (closed) return;
             closed = true;
@@ -131,7 +138,7 @@ export function openContainer(player, spec) {
 
             const now = handle.items();
             let pressed = null, changed = false;
-            for (let i = 0; i < SIZE; i++) {
+            for (let i = 0; i < size; i++) {
                 const s = sig(now[i]);
                 if (s === sigs[i]) continue;
                 if (locked.has(i)) {
@@ -170,16 +177,16 @@ function discard(entity) {
 export function startContainers() {
     system.runTimeout(() => {
         for (const dim of ["overworld", "nether", "the_end"]) {
-            try { for (const e of world.getDimension(dim).getEntities({ type: TYPE })) if (!isLive(e)) discard(e); } catch (err) { /* fine */ }
+            try { for (const e of world.getDimension(dim).getEntities({ families: [FAMILY] })) if (!isLive(e)) discard(e); } catch (err) { /* fine */ }
         }
     }, 40);
     try {
         world.afterEvents.entityLoad.subscribe(ev => {
-            if (ev.entity?.typeId === TYPE && !isLive(ev.entity)) system.run(() => discard(ev.entity));
+            if (TYPES.has(ev.entity?.typeId) && !isLive(ev.entity)) system.run(() => discard(ev.entity));
         });
     } catch (e) { /* older API */ }
     world.beforeEvents.playerInteractWithEntity.subscribe(ev => {
-        if (ev.target.typeId !== TYPE) return;
+        if (!TYPES.has(ev.target.typeId)) return;
         const h = isLive(ev.target);
         if (h && h.player.id === ev.player.id) return;
         ev.cancel = true;
