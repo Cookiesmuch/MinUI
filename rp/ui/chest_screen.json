@@ -1109,5 +1109,19 @@
         ]
       }
     ]
+  },
+  "large_chest_screen": {
+    "modifications": [
+      {
+        "array_name": "variables",
+        "operation": "insert_front",
+        "value": [
+          {
+            "requires": "($container_title = 'oc_triplegrid')",
+            "$screen_content": "chest.oc_triplegrid_panel"
+          }
+        ]
+      }
+    ]
   }
 }

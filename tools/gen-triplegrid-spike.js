@@ -118,7 +118,29 @@ const doc = {
         ],
     },
 
+    // Patched on BOTH small_chest_screen and large_chest_screen: the first
+    // attempt only patched small_chest_screen and it silently never
+    // applied (no error anywhere - Content Log was completely clean) for
+    // a 90-slot container. The working theory is a container past the
+    // small chest's native 27-slot range routes through large_chest_screen
+    // instead, so patching only one of the two is a real bug, not a
+    // one-off fluke - covering both means the swap fires regardless of
+    // which one actually governs a given inventory_size.
     small_chest_screen: {
+        modifications: [
+            {
+                array_name: "variables",
+                operation: "insert_front",
+                value: [
+                    {
+                        requires: "($container_title = 'oc_triplegrid')",
+                        "$screen_content": "chest.oc_triplegrid_panel",
+                    },
+                ],
+            },
+        ],
+    },
+    large_chest_screen: {
         modifications: [
             {
                 array_name: "variables",
