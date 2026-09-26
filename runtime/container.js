@@ -99,6 +99,16 @@ export function openContainer(player, spec) {
     const entity = player.dimension.spawnEntity(entityType, spawnPoint(player));
     try { entity.nameTag = spec.title ?? ""; } catch (e) { /* fine */ }
     try { entity.setRotation({ x: 0, y: player.getRotation().y + 180 }); } catch (e) { /* fine */ }
+    // container_type "horse" gates its own open-on-interact behavior behind
+    // being tamed (confirmed against a real, shipped precedent) - tame it
+    // to the opening player instantly, real ownership via the documented
+    // EntityTameableComponent.tame() API, not the natural feed-item ritual.
+    // A container_type "container" entity (no tameable component) just
+    // skips this - nothing to tame, nothing changes for it.
+    try {
+        const tameable = entity.getComponent("minecraft:tameable");
+        if (tameable) { tameable.tame(player); entity.triggerEvent(`${NS}:container_tamed`); }
+    } catch (e) { /* fine */ }
     const container = entity.getComponent("minecraft:inventory").container;
     const locked = new Set(spec.locked ?? []);
     const expected = new Array(size).fill(undefined);  // what we last put in each slot
