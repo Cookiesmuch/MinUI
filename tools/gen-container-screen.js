@@ -51,12 +51,16 @@ const CELL = 18; // vanilla's own slot pixel size
 const GAP = 10;  // visible daylight between the three grids
 const START_X = 79, START_Y = 18; // clears equip_panel/horse_renderer to the left
 
-// [label, columns, rows] - all three read/write the SAME "container_items"
-// collection, each independently starting at its own index 0.
+// DIAGNOSTIC: shrunk to two tiny 1x2 grids to map out EXACTLY how indices
+// relate between multiple real grids sharing one collection - the 4/90/27
+// version showed real echoing (one item appeared in 3 places) but with
+// too much visual noise to tell whether it's "both start at 0" or
+// "contiguous continuation" or something else. Put a DIFFERENT item in
+// grid A's top slot, then its bottom slot, and report exactly what
+// appears where in grid B each time.
 const SECTIONS = [
-    ["A", 1, 4],    // 1x4 = 4
-    ["B", 9, 10],   // 9x10 = 90
-    ["C", 9, 3],    // 9x3 = 27
+    ["A", 1, 2],    // 1x2 = 2
+    ["B", 1, 2],    // 1x2 = 2
 ];
 
 const doc = {
