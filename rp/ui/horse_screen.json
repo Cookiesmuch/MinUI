@@ -1,22 +1,6 @@
 {
   "namespace": "horse",
-  "oc_grid_item@common.container_item": {},
-  "oc_grid": {
-    "type": "grid",
-    "size": [
-      162,
-      180
-    ],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "grid_dimensions": [
-      9,
-      10
-    ],
-    "grid_item_template": "horse.oc_grid_item",
-    "collection_name": "container_items"
-  },
-  "oc_panel": {
+  "oc_triplegrid_panel": {
     "type": "panel",
     "controls": [
       {
@@ -31,16 +15,16 @@
       {
         "root_panel@common.root_panel": {
           "size": [
-            248,
-            351
+            448,
+            232
           ],
           "layer": 1,
           "controls": [
             {
               "common_panel@common.common_panel": {
                 "size": [
-                  248,
-                  351
+                  448,
+                  232
                 ]
               }
             },
@@ -64,80 +48,362 @@
               }
             },
             {
-              "quick_access_label": {
-                "type": "label",
-                "layer": 2,
-                "size": [
-                  162,
-                  9
-                ],
+              "oc_cell_A_0@common.container_item": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 0,
                 "offset": [
                   79,
                   18
-                ],
-                "text": "Quick Access",
-                "color": [
-                  0.78,
-                  0.8,
-                  0.93
-                ],
-                "font_size": "small",
-                "shadow": true
-              }
-            },
-            {
-              "storage_label": {
-                "type": "label",
-                "layer": 2,
-                "size": [
-                  162,
-                  9
-                ],
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "offset": [
-                  79,
-                  68
-                ],
-                "text": "Storage",
-                "color": [
-                  0.78,
-                  0.8,
-                  0.93
-                ],
-                "font_size": "small",
-                "shadow": true
-              }
-            },
-            {
-              "section_divider": {
-                "type": "image",
-                "layer": 2,
-                "size": [
-                  162,
-                  1
-                ],
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "offset": [
-                  79,
-                  64
-                ],
-                "texture": "textures/ui/White",
-                "color": [
-                  0.55,
-                  0.55,
-                  0.6
                 ]
               }
             },
             {
-              "main_grid@horse.oc_grid": {
+              "oc_cell_A_1@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 1,
                 "offset": [
                   79,
-                  29
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_A_2@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 2,
+                "offset": [
+                  79,
+                  54
+                ]
+              }
+            },
+            {
+              "oc_cell_A_3@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 3,
+                "offset": [
+                  79,
+                  72
+                ]
+              }
+            },
+            {
+              "oc_cell_B_0@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 4,
+                "offset": [
+                  107,
+                  18
+                ]
+              }
+            },
+            {
+              "oc_cell_B_1@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 5,
+                "offset": [
+                  125,
+                  18
+                ]
+              }
+            },
+            {
+              "oc_cell_B_2@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 6,
+                "offset": [
+                  143,
+                  18
+                ]
+              }
+            },
+            {
+              "oc_cell_B_3@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 7,
+                "offset": [
+                  161,
+                  18
+                ]
+              }
+            },
+            {
+              "oc_cell_B_4@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 8,
+                "offset": [
+                  179,
+                  18
+                ]
+              }
+            },
+            {
+              "oc_cell_B_5@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 9,
+                "offset": [
+                  197,
+                  18
+                ]
+              }
+            },
+            {
+              "oc_cell_B_6@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 10,
+                "offset": [
+                  215,
+                  18
+                ]
+              }
+            },
+            {
+              "oc_cell_B_7@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 11,
+                "offset": [
+                  233,
+                  18
+                ]
+              }
+            },
+            {
+              "oc_cell_B_8@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 12,
+                "offset": [
+                  251,
+                  18
+                ]
+              }
+            },
+            {
+              "oc_cell_B_9@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 13,
+                "offset": [
+                  107,
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_B_10@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 14,
+                "offset": [
+                  125,
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_B_11@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 15,
+                "offset": [
+                  143,
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_B_12@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 16,
+                "offset": [
+                  161,
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_B_13@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 17,
+                "offset": [
+                  179,
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_B_14@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 18,
+                "offset": [
+                  197,
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_B_15@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 19,
+                "offset": [
+                  215,
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_B_16@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 20,
+                "offset": [
+                  233,
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_B_17@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 21,
+                "offset": [
+                  251,
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_C_0@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 22,
+                "offset": [
+                  279,
+                  18
+                ]
+              }
+            },
+            {
+              "oc_cell_C_1@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 23,
+                "offset": [
+                  297,
+                  18
+                ]
+              }
+            },
+            {
+              "oc_cell_C_2@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 24,
+                "offset": [
+                  315,
+                  18
+                ]
+              }
+            },
+            {
+              "oc_cell_C_3@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 25,
+                "offset": [
+                  333,
+                  18
+                ]
+              }
+            },
+            {
+              "oc_cell_C_4@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 26,
+                "offset": [
+                  351,
+                  18
+                ]
+              }
+            },
+            {
+              "oc_cell_C_5@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 27,
+                "offset": [
+                  369,
+                  18
+                ]
+              }
+            },
+            {
+              "oc_cell_C_6@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 28,
+                "offset": [
+                  387,
+                  18
+                ]
+              }
+            },
+            {
+              "oc_cell_C_7@common.container_item": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 29,
+                "offset": [
+                  405,
+                  18
                 ]
               }
             },
@@ -145,7 +411,7 @@
               "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
                 "offset": [
                   0,
-                  221
+                  102
                 ]
               }
             },
@@ -174,7 +440,7 @@
     "variables": [
       {
         "requires": "true",
-        "$screen_content": "horse.oc_panel"
+        "$screen_content": "horse.oc_triplegrid_panel"
       }
     ]
   }
