@@ -46,14 +46,29 @@
 // every container_type "horse" entity including real horses/donkeys/
 // mules/llamas. equip_panel and horse_renderer are kept at their real
 // original offsets for the same reason as before.
+//
+// A SIXTH FINDING, confirmed live with the single grid at 90 slots:
+// container_type "horse" has a real, undocumented client-side interaction
+// ceiling - only the first 30 slots could actually take/give items (no
+// crash, they just silently didn't work), regardless of declared
+// inventory_size. 30 is also AC's own real, production inventory_size for
+// this exact container_type - not a coincidence. container_wide's
+// inventory_size and this grid's dimensions are both capped at 30 now.
 "use strict";
 const fs = require("fs");
 const path = require("path");
 
+// container_type "horse" has a real, undocumented client-side interaction
+// ceiling around 30 slots - confirmed live: with 90 declared, only the
+// first 30 (3 full rows + 3) could actually take/give items, the rest
+// were dead (no crash, just non-functional). 30 is also AC's own real,
+// production inventory_size for this exact container_type - not a
+// coincidence. 6x5 instead of 9-wide specifically so this doesn't read as
+// "a vanilla chest" at a glance.
 const CELL = 18; // vanilla's own slot pixel size
-const COLS = 9;
-const ROWS = 10; // 9x10 = 90, matching container_wide's inventory_size
-const QUICK_ACCESS_ROWS = 2; // purely a decorative split point - not a real boundary in the collection
+const COLS = 6;
+const ROWS = 5; // 6x5 = 30, the real working ceiling for container_type "horse"
+const QUICK_ACCESS_ROWS = 1; // purely a decorative split point - not a real boundary in the collection
 
 const START_X = 79; // clears equip_panel/horse_renderer to the left
 const LABEL_H = 11; // space reserved above the grid for the "Quick Access" label
