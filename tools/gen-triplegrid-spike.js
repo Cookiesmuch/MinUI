@@ -1,27 +1,35 @@
 #!/usr/bin/env node
-// DIAGNOSTIC SPIKE generator - produces rp/ui/chest_screen.json's three-grid
+// DIAGNOSTIC SPIKE generator - produces rp/ui/horse_screen.json's three-grid
 // test layout. Not part of the normal build; run by hand
 // (`node tools/gen-triplegrid-spike.js`) whenever the layout needs
 // regenerating, and the OUTPUT file is what actually ships.
 //
-// Why generated rather than hand-written: a real vanilla `type:"grid"`
-// always numbers its own cells starting at index 0 of whatever
-// collection_name it's bound to - it has no "start at index N" property
-// (confirmed against the Bedrock Wiki's own Grid property list). So three
-// grids sharing one container's "container_items" collection can't use
-// three native <grid> elements; each cell has to be placed by hand as its
-// own common.container_item instance with an explicit collection_index,
-// laid out in a normal row/column pattern ourselves. That's exactly the
-// single-button trick from the earlier container-button spike, just
-// repeated for every slot instead of once - hence generating it instead
-// of authoring 84 near-identical entries by hand.
+// SECOND ATTEMPT - the first one targeted chest_screen.json's
+// small_chest_screen/large_chest_screen and silently never applied for a
+// 90-slot container, with zero Content Log errors either time. Working
+// theory, per real prior experience with this exact problem elsewhere:
+// container_type "container" entities may not route through
+// small_chest_screen/large_chest_screen at all - those may be reserved for
+// real chest/ender-chest/shulker/barrel *blocks*. container_type "horse"
+// entities have their own screen (horse_screen.json) with a genuinely
+// different, size-agnostic mechanism: horse.inv_grid reads its own
+// dimensions from a real binding (#inv_grid_dimensions) instead of a
+// hardcoded grid_dimensions, so it isn't split into a small/large duality
+// at all - confirmed by reading Mojang's own bedrock-samples horse_screen.json.
+//
+// Still generating the three hand-placed blocks rather than relying on
+// inv_grid's own auto-sizing, since the actual ask is three visually
+// separate sections sharing one collection, not one auto-sized grid -
+// same "a real type:grid always numbers its own cells from index 0, so
+// only one of several sections on one collection could ever use it"
+// constraint as before.
 "use strict";
 const fs = require("fs");
 const path = require("path");
 
 const CELL = 18; // vanilla's own slot pixel size
 const GAP = 10;  // visible daylight between the three sections
-const START_X = 7, START_Y = 9; // matches vanilla's own grid offset convention
+const START_X = 7, START_Y = 18; // matches horse_panel's own inv_panel offset convention
 
 // [label, columns, slotCount]
 const SECTIONS = [
@@ -35,11 +43,6 @@ function sectionCells(section, startIndex, offsetX) {
     const cells = [];
     for (let i = 0; i < count; i++) {
         const row = Math.floor(i / cols), col = i % cols;
-        // A direct extend of common.container_item, exactly like the
-        // earlier single-button spike's widget - not container_item
-        // wrapped inside another input_panel, which would just add a
-        // redundant, possibly click-intercepting layer on top of a
-        // control that's already a real input_panel itself.
         cells.push({
             [`oc_cell_${label}_${i}@common.container_item`]: {
                 anchor_from: "top_left",
@@ -55,78 +58,52 @@ function sectionCells(section, startIndex, offsetX) {
 
 let index = 0, x = START_X;
 const allCells = [];
-let widths = [];
 for (const section of SECTIONS) {
     const [, cols, count] = section;
     allCells.push(...sectionCells(section, index, x));
     index += count;
-    const w = cols * CELL;
-    widths.push(w);
-    x += w + GAP;
+    x += cols * CELL + GAP;
 }
 const totalSlots = index;
 const panelWidth = x - GAP + START_X;
 const gridHeight = Math.max(...SECTIONS.map(([, cols, count]) => Math.ceil(count / cols) * CELL));
-const topHalfHeight = START_Y + gridHeight + 10;
-const rootHeight = topHalfHeight + 12 + 90 + 40; // top half + label offset + player inv block + hotbar/margin
+const rootHeight = START_Y + gridHeight + 12 + 90 + 40; // grids + label offset + player inv block + hotbar/margin
 
 const doc = {
-    namespace: "chest",
+    namespace: "horse",
 
-    oc_triplegrid_top_half: {
-        type: "panel",
-        size: ["100%", topHalfHeight],
-        offset: [0, 12],
-        anchor_to: "top_left",
-        anchor_from: "top_left",
-        controls: [
-            { "chest_label@chest.chest_label": {} },
-            ...allCells,
-        ],
-    },
-
-    "oc_triplegrid_root_panel@common.root_panel": {
-        size: [panelWidth, rootHeight],
-        layer: 1,
-        controls: [
-            { "common_panel@common.common_panel": { size: [panelWidth, rootHeight] } },
-            {
-                chest_panel: {
-                    type: "panel",
-                    layer: 5,
-                    controls: [
-                        { "small_chest_panel_top_half@chest.oc_triplegrid_top_half": {} },
-                        { "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": { offset: [0, topHalfHeight + 12] } },
-                        { "hotbar_grid@common.hotbar_grid_template": {} },
-                        { "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {} },
-                        { "flying_item_renderer@common.flying_item_renderer": { layer: 15 } },
-                    ],
-                },
-            },
-            { "inventory_selected_icon_button@common.inventory_selected_icon_button": {} },
-            { "gamepad_cursor@common.gamepad_cursor_button": {} },
-        ],
-    },
-
+    // Everything horse_panel's own siblings need (equip_panel, the horse
+    // renderer) is dropped - our satchel entity is not a real horse and
+    // has none of the components those read from. Only the pieces every
+    // container screen needs (gamepad helpers, item details/lock
+    // notifications, the player's own inventory + hotbar) are kept,
+    // copied from horse_panel's real structure.
     oc_triplegrid_panel: {
         type: "panel",
         controls: [
             { "container_gamepad_helpers@common.container_gamepad_helpers": {} },
             { "selected_item_details_factory@common.selected_item_details_factory": {} },
             { "item_lock_notification_factory@common.item_lock_notification_factory": {} },
-            { "root_panel@chest.oc_triplegrid_root_panel": {} },
+            {
+                "root_panel@common.root_panel": {
+                    size: [panelWidth, rootHeight],
+                    layer: 1,
+                    controls: [
+                        { "common_panel@common.common_panel": { "$use_compact_close_button": true, size: [panelWidth, rootHeight] } },
+                        { "horse_section_label@horse.horse_label": {} },
+                        ...allCells,
+                        { "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": { offset: [0, START_Y + gridHeight + 12] } },
+                        { "hotbar_grid_template@common.hotbar_grid_template": {} },
+                        { "inventory_selected_icon_button@common.inventory_selected_icon_button": {} },
+                        { "gamepad_cursor@common.gamepad_cursor_button": {} },
+                    ],
+                },
+            },
+            { "flying_item_renderer@common.flying_item_renderer": { layer: 10 } },
         ],
     },
 
-    // Patched on BOTH small_chest_screen and large_chest_screen: the first
-    // attempt only patched small_chest_screen and it silently never
-    // applied (no error anywhere - Content Log was completely clean) for
-    // a 90-slot container. The working theory is a container past the
-    // small chest's native 27-slot range routes through large_chest_screen
-    // instead, so patching only one of the two is a real bug, not a
-    // one-off fluke - covering both means the swap fires regardless of
-    // which one actually governs a given inventory_size.
-    small_chest_screen: {
+    horse_screen: {
         modifications: [
             {
                 array_name: "variables",
@@ -134,21 +111,7 @@ const doc = {
                 value: [
                     {
                         requires: "($container_title = 'oc_triplegrid')",
-                        "$screen_content": "chest.oc_triplegrid_panel",
-                    },
-                ],
-            },
-        ],
-    },
-    large_chest_screen: {
-        modifications: [
-            {
-                array_name: "variables",
-                operation: "insert_front",
-                value: [
-                    {
-                        requires: "($container_title = 'oc_triplegrid')",
-                        "$screen_content": "chest.oc_triplegrid_panel",
+                        "$screen_content": "horse.oc_triplegrid_panel",
                     },
                 ],
             },
@@ -156,7 +119,7 @@ const doc = {
     },
 };
 
-const outPath = path.join(__dirname, "..", "rp", "ui", "chest_screen.json");
+const outPath = path.join(__dirname, "..", "rp", "ui", "horse_screen.json");
 fs.writeFileSync(outPath, JSON.stringify(doc, null, 2) + "\n");
 console.log(`Wrote ${outPath}`);
 console.log(`Sections: ${SECTIONS.map(([l, c, n]) => `${l}=${n} slots (${c} wide)`).join(", ")}`);
