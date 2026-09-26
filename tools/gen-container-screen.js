@@ -27,6 +27,21 @@
 // functionality as this layout allows; our own satchel entity just never
 // populates those slots since it has none of the components they read
 // from.
+//
+// THE ACTUAL ITEM-PLACEMENT CRASH, found via Content Log (not a layout or
+// size problem - a real native "requires: true" grid crashed identically
+// to hand-placed cells, and even AC's own already-shipped horse-type
+// character inventory crashed too, since this file's unconditional
+// replacement now governs every container_type "horse" entity in the
+// game): "Expected variable not found in ancestor tree: '$item_collection_name'".
+// Real vanilla always sets $item_collection_name alongside
+// common.container_item (see chest_screen.json's own
+// "chest_grid_item@common.container_item": {"$item_collection_name":
+// "container_items"}) - it's required by the game's Bundle-interaction
+// system (checking whether a selected item is a Bundle, to show its open/
+// close icons), and omitting it faults instead of failing gracefully the
+// moment a player actually selects an item. Every common.container_item
+// extend below now sets it.
 "use strict";
 const fs = require("fs");
 const path = require("path");
@@ -35,16 +50,11 @@ const CELL = 18; // vanilla's own slot pixel size
 const GAP = 10;  // visible daylight between the three sections
 const START_X = 79, START_Y = 18; // matches horse_panel's own real inv_panel offset - clears equip_panel/horse_renderer to its left
 
-// TEMPORARY: shrunk to exactly 30 slots (matching container_wide's
-// inventory_size, itself temporarily reduced to 30 to test whether the
-// item-placement crash is about a horse-type container being far bigger
-// than any real horse-family entity ever is, not the layout) - so every
-// slot a player can click actually exists, with no ambiguity from
-// clicking a collection_index the entity doesn't really have.
+// [label, columns, slotCount]
 const SECTIONS = [
     ["A", 1, 4],   // 1x4 vertical strip
-    ["B", 9, 18],  // 2 full rows
-    ["C", 9, 8],   // a partial row
+    ["B", 9, 54],  // double chest
+    ["C", 9, 26],  // a plain 26-slot block
 ];
 
 function sectionCells(section, startIndex, offsetX) {
@@ -54,6 +64,7 @@ function sectionCells(section, startIndex, offsetX) {
         const row = Math.floor(i / cols), col = i % cols;
         cells.push({
             [`oc_cell_${label}_${i}@common.container_item`]: {
+                "$item_collection_name": "container_items",
                 anchor_from: "top_left",
                 anchor_to: "top_left",
                 collection_name: "container_items",

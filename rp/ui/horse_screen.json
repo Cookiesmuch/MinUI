@@ -16,7 +16,7 @@
         "root_panel@common.root_panel": {
           "size": [
             448,
-            232
+            268
           ],
           "layer": 1,
           "controls": [
@@ -24,7 +24,7 @@
               "common_panel@common.common_panel": {
                 "size": [
                   448,
-                  232
+                  268
                 ]
               }
             },
@@ -49,6 +49,7 @@
             },
             {
               "oc_cell_A_0@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -61,6 +62,7 @@
             },
             {
               "oc_cell_A_1@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -73,6 +75,7 @@
             },
             {
               "oc_cell_A_2@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -85,6 +88,7 @@
             },
             {
               "oc_cell_A_3@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -97,6 +101,7 @@
             },
             {
               "oc_cell_B_0@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -109,6 +114,7 @@
             },
             {
               "oc_cell_B_1@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -121,6 +127,7 @@
             },
             {
               "oc_cell_B_2@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -133,6 +140,7 @@
             },
             {
               "oc_cell_B_3@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -145,6 +153,7 @@
             },
             {
               "oc_cell_B_4@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -157,6 +166,7 @@
             },
             {
               "oc_cell_B_5@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -169,6 +179,7 @@
             },
             {
               "oc_cell_B_6@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -181,6 +192,7 @@
             },
             {
               "oc_cell_B_7@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -193,6 +205,7 @@
             },
             {
               "oc_cell_B_8@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -205,6 +218,7 @@
             },
             {
               "oc_cell_B_9@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -217,6 +231,7 @@
             },
             {
               "oc_cell_B_10@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -229,6 +244,7 @@
             },
             {
               "oc_cell_B_11@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -241,6 +257,7 @@
             },
             {
               "oc_cell_B_12@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -253,6 +270,7 @@
             },
             {
               "oc_cell_B_13@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -265,6 +283,7 @@
             },
             {
               "oc_cell_B_14@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -277,6 +296,7 @@
             },
             {
               "oc_cell_B_15@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -289,6 +309,7 @@
             },
             {
               "oc_cell_B_16@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -301,6 +322,7 @@
             },
             {
               "oc_cell_B_17@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
@@ -312,11 +334,480 @@
               }
             },
             {
-              "oc_cell_C_0@common.container_item": {
+              "oc_cell_B_18@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
                 "collection_index": 22,
+                "offset": [
+                  107,
+                  54
+                ]
+              }
+            },
+            {
+              "oc_cell_B_19@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 23,
+                "offset": [
+                  125,
+                  54
+                ]
+              }
+            },
+            {
+              "oc_cell_B_20@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 24,
+                "offset": [
+                  143,
+                  54
+                ]
+              }
+            },
+            {
+              "oc_cell_B_21@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 25,
+                "offset": [
+                  161,
+                  54
+                ]
+              }
+            },
+            {
+              "oc_cell_B_22@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 26,
+                "offset": [
+                  179,
+                  54
+                ]
+              }
+            },
+            {
+              "oc_cell_B_23@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 27,
+                "offset": [
+                  197,
+                  54
+                ]
+              }
+            },
+            {
+              "oc_cell_B_24@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 28,
+                "offset": [
+                  215,
+                  54
+                ]
+              }
+            },
+            {
+              "oc_cell_B_25@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 29,
+                "offset": [
+                  233,
+                  54
+                ]
+              }
+            },
+            {
+              "oc_cell_B_26@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 30,
+                "offset": [
+                  251,
+                  54
+                ]
+              }
+            },
+            {
+              "oc_cell_B_27@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 31,
+                "offset": [
+                  107,
+                  72
+                ]
+              }
+            },
+            {
+              "oc_cell_B_28@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 32,
+                "offset": [
+                  125,
+                  72
+                ]
+              }
+            },
+            {
+              "oc_cell_B_29@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 33,
+                "offset": [
+                  143,
+                  72
+                ]
+              }
+            },
+            {
+              "oc_cell_B_30@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 34,
+                "offset": [
+                  161,
+                  72
+                ]
+              }
+            },
+            {
+              "oc_cell_B_31@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 35,
+                "offset": [
+                  179,
+                  72
+                ]
+              }
+            },
+            {
+              "oc_cell_B_32@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 36,
+                "offset": [
+                  197,
+                  72
+                ]
+              }
+            },
+            {
+              "oc_cell_B_33@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 37,
+                "offset": [
+                  215,
+                  72
+                ]
+              }
+            },
+            {
+              "oc_cell_B_34@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 38,
+                "offset": [
+                  233,
+                  72
+                ]
+              }
+            },
+            {
+              "oc_cell_B_35@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 39,
+                "offset": [
+                  251,
+                  72
+                ]
+              }
+            },
+            {
+              "oc_cell_B_36@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 40,
+                "offset": [
+                  107,
+                  90
+                ]
+              }
+            },
+            {
+              "oc_cell_B_37@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 41,
+                "offset": [
+                  125,
+                  90
+                ]
+              }
+            },
+            {
+              "oc_cell_B_38@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 42,
+                "offset": [
+                  143,
+                  90
+                ]
+              }
+            },
+            {
+              "oc_cell_B_39@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 43,
+                "offset": [
+                  161,
+                  90
+                ]
+              }
+            },
+            {
+              "oc_cell_B_40@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 44,
+                "offset": [
+                  179,
+                  90
+                ]
+              }
+            },
+            {
+              "oc_cell_B_41@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 45,
+                "offset": [
+                  197,
+                  90
+                ]
+              }
+            },
+            {
+              "oc_cell_B_42@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 46,
+                "offset": [
+                  215,
+                  90
+                ]
+              }
+            },
+            {
+              "oc_cell_B_43@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 47,
+                "offset": [
+                  233,
+                  90
+                ]
+              }
+            },
+            {
+              "oc_cell_B_44@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 48,
+                "offset": [
+                  251,
+                  90
+                ]
+              }
+            },
+            {
+              "oc_cell_B_45@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 49,
+                "offset": [
+                  107,
+                  108
+                ]
+              }
+            },
+            {
+              "oc_cell_B_46@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 50,
+                "offset": [
+                  125,
+                  108
+                ]
+              }
+            },
+            {
+              "oc_cell_B_47@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 51,
+                "offset": [
+                  143,
+                  108
+                ]
+              }
+            },
+            {
+              "oc_cell_B_48@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 52,
+                "offset": [
+                  161,
+                  108
+                ]
+              }
+            },
+            {
+              "oc_cell_B_49@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 53,
+                "offset": [
+                  179,
+                  108
+                ]
+              }
+            },
+            {
+              "oc_cell_B_50@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 54,
+                "offset": [
+                  197,
+                  108
+                ]
+              }
+            },
+            {
+              "oc_cell_B_51@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 55,
+                "offset": [
+                  215,
+                  108
+                ]
+              }
+            },
+            {
+              "oc_cell_B_52@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 56,
+                "offset": [
+                  233,
+                  108
+                ]
+              }
+            },
+            {
+              "oc_cell_B_53@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 57,
+                "offset": [
+                  251,
+                  108
+                ]
+              }
+            },
+            {
+              "oc_cell_C_0@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 58,
                 "offset": [
                   279,
                   18
@@ -325,10 +816,11 @@
             },
             {
               "oc_cell_C_1@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
-                "collection_index": 23,
+                "collection_index": 59,
                 "offset": [
                   297,
                   18
@@ -337,10 +829,11 @@
             },
             {
               "oc_cell_C_2@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
-                "collection_index": 24,
+                "collection_index": 60,
                 "offset": [
                   315,
                   18
@@ -349,10 +842,11 @@
             },
             {
               "oc_cell_C_3@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
-                "collection_index": 25,
+                "collection_index": 61,
                 "offset": [
                   333,
                   18
@@ -361,10 +855,11 @@
             },
             {
               "oc_cell_C_4@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
-                "collection_index": 26,
+                "collection_index": 62,
                 "offset": [
                   351,
                   18
@@ -373,10 +868,11 @@
             },
             {
               "oc_cell_C_5@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
-                "collection_index": 27,
+                "collection_index": 63,
                 "offset": [
                   369,
                   18
@@ -385,10 +881,11 @@
             },
             {
               "oc_cell_C_6@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
-                "collection_index": 28,
+                "collection_index": 64,
                 "offset": [
                   387,
                   18
@@ -397,10 +894,11 @@
             },
             {
               "oc_cell_C_7@common.container_item": {
+                "$item_collection_name": "container_items",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "collection_name": "container_items",
-                "collection_index": 29,
+                "collection_index": 65,
                 "offset": [
                   405,
                   18
@@ -408,10 +906,244 @@
               }
             },
             {
+              "oc_cell_C_8@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 66,
+                "offset": [
+                  423,
+                  18
+                ]
+              }
+            },
+            {
+              "oc_cell_C_9@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 67,
+                "offset": [
+                  279,
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_C_10@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 68,
+                "offset": [
+                  297,
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_C_11@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 69,
+                "offset": [
+                  315,
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_C_12@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 70,
+                "offset": [
+                  333,
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_C_13@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 71,
+                "offset": [
+                  351,
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_C_14@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 72,
+                "offset": [
+                  369,
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_C_15@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 73,
+                "offset": [
+                  387,
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_C_16@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 74,
+                "offset": [
+                  405,
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_C_17@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 75,
+                "offset": [
+                  423,
+                  36
+                ]
+              }
+            },
+            {
+              "oc_cell_C_18@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 76,
+                "offset": [
+                  279,
+                  54
+                ]
+              }
+            },
+            {
+              "oc_cell_C_19@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 77,
+                "offset": [
+                  297,
+                  54
+                ]
+              }
+            },
+            {
+              "oc_cell_C_20@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 78,
+                "offset": [
+                  315,
+                  54
+                ]
+              }
+            },
+            {
+              "oc_cell_C_21@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 79,
+                "offset": [
+                  333,
+                  54
+                ]
+              }
+            },
+            {
+              "oc_cell_C_22@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 80,
+                "offset": [
+                  351,
+                  54
+                ]
+              }
+            },
+            {
+              "oc_cell_C_23@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 81,
+                "offset": [
+                  369,
+                  54
+                ]
+              }
+            },
+            {
+              "oc_cell_C_24@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 82,
+                "offset": [
+                  387,
+                  54
+                ]
+              }
+            },
+            {
+              "oc_cell_C_25@common.container_item": {
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "container_items",
+                "collection_index": 83,
+                "offset": [
+                  405,
+                  54
+                ]
+              }
+            },
+            {
               "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
                 "offset": [
                   0,
-                  102
+                  138
                 ]
               }
             },
