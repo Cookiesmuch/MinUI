@@ -1,8 +1,45 @@
 {
   "namespace": "chest",
 
-  "oc_spike_button_widget@common.container_item": {
-    "$item_collection_name": "container_items"
+  "oc_spike_grid@chest.small_chest_grid": {
+    "size": [ 162, 36 ],
+    "grid_dimensions": [ 9, 2 ]
+  },
+
+  "oc_spike_button_slot@common.container_item": {
+    "size": [ 44, 18 ]
+  },
+
+  "oc_spike_button_frame": {
+    "type": "panel",
+    "size": [ 48, 22 ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      { "bg@common.cell_image_panel": { "size": [ 48, 22 ] } },
+      {
+        "slot@chest.oc_spike_button_slot": {
+          "collection_name": "container_items",
+          "collection_index": 26,
+          "offset": [ 2, 2 ]
+        }
+      },
+      {
+        "label": {
+          "type": "label",
+          "layer": 3,
+          "size": [ 48, 9 ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "offset": [ 0, -2 ],
+          "text": "Codex",
+          "color": [ 1.0, 0.85, 0.3 ],
+          "font_size": "small",
+          "text_alignment": "center",
+          "shadow": true
+        }
+      }
+    ]
   },
 
   "oc_spike_panel_top_half": {
@@ -13,23 +50,22 @@
     "anchor_from": "top_left",
     "controls": [
       { "chest_label@chest.chest_label": {} },
-      { "small_chest_grid@chest.small_chest_grid": { "offset": [ 7, 9 ] } },
+      { "small_chest_grid@chest.oc_spike_grid": { "offset": [ 7, 9 ] } },
       {
-        "oc_spike_button@chest.oc_spike_button_widget": {
-          "collection_name": "container_items",
-          "collection_index": 26,
+        "oc_spike_button@chest.oc_spike_button_frame": {
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "offset": [ 176, 9 ]
+          "offset": [ 185, 9 ]
         }
       }
     ]
   },
 
   "oc_spike_root_panel@common.root_panel": {
+    "size": [ 240, 166 ],
     "layer": 1,
     "controls": [
-      { "common_panel@common.common_panel": {} },
+      { "common_panel@common.common_panel": { "size": [ 240, 166 ] } },
       {
         "chest_panel": {
           "type": "panel",
